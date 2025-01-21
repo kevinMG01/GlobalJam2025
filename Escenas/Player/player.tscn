@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://bgnsbw7lpfa51"]
+[gd_scene load_steps=5 format=3 uid="uid://bgnsbw7lpfa51"]
 
 [ext_resource type="Script" path="res://Escenas/Player/player.gd" id="1_cjwrm"]
 [ext_resource type="Texture2D" uid="uid://ciinlx0yqrvgt" path="res://icon.svg" id="2_xk3q0"]
@@ -6,15 +6,27 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_avyy7"]
 size = Vector2(93, 104.5)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n0qev"]
+size = Vector2(73.5, 105)
+
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_cjwrm")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_avyy7")
 
 [node name="Icon" type="Sprite2D" parent="."]
 position = Vector2(1, 7)
 texture = ExtResource("2_xk3q0")
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_avyy7")
+
 [node name="posBurbujas" type="Marker2D" parent="."]
 position = Vector2(85, 0)
+
+[node name="detectorEscaleras" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="detectorEscaleras"]
+position = Vector2(4.25, 5.5)
+shape = SubResource("RectangleShape2D_n0qev")
+
+[connection signal="area_entered" from="detectorEscaleras" to="." method="_on_detector_escaleras_area_entered"]
+[connection signal="area_exited" from="detectorEscaleras" to="." method="_on_detector_escaleras_area_exited"]
