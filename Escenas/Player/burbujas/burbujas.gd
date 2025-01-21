@@ -28,7 +28,6 @@ func _on_tiempo_mov_timeout():
 
 
 
-
 func _on_destuccion_timeout():
 	queue_free()
 	$destuccion.stop()

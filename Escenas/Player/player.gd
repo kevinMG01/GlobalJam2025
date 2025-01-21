@@ -8,9 +8,13 @@ const JUMP_VELOCITY = -1300.0
 
 var gravity = 2000
 
+var cantidadBurbujas = 20
+
 func _physics_process(delta):
 	if Input.is_action_just_pressed("ui_accept"):
-		spawnBurbujas()
+		if cantidadBurbujas > 0:
+			spawnBurbujas()
+			cantidadBurbujas -= 1
 
 	if not is_on_floor():
 		velocity.y += gravity * delta

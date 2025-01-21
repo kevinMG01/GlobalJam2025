@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://dfggjgvr8k30p"]
+
+[ext_resource type="Script" path="res://Escenas/Enemigos/payaso/payaso.gd" id="1_8q1uy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c5ov0"]
+size = Vector2(33, 89)
+
+[node name="payaso" type="CharacterBody2D"]
+script = ExtResource("1_8q1uy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(6.5, 34.5)
+shape = SubResource("RectangleShape2D_c5ov0")
