@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://g845r7iw7xmu"]
+
+[ext_resource type="Script" path="res://Escenas/Player/burbujas/burbujas.gd" id="1_m8wbw"]
+[ext_resource type="Texture2D" uid="uid://ciinlx0yqrvgt" path="res://icon.svg" id="2_m35j1"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_368n2"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bglrh"]
+radius = 16.0312
+
+[node name="burbujas" type="CharacterBody2D"]
+script = ExtResource("1_m8wbw")
+velocidad = 300
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_368n2")
+disabled = true
+
+[node name="detector" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="detector"]
+shape = SubResource("CircleShape2D_bglrh")
+
+[node name="Icon" type="Sprite2D" parent="."]
+position = Vector2(1, 7)
+texture = ExtResource("2_m35j1")
+
+[node name="tiempoMov" type="Timer" parent="."]
+
+[node name="destuccion" type="Timer" parent="."]
+
+[connection signal="timeout" from="tiempoMov" to="." method="_on_tiempo_mov_timeout"]
+[connection signal="timeout" from="destuccion" to="." method="_on_destuccion_timeout"]
