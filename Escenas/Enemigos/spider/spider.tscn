@@ -4,16 +4,17 @@
 [ext_resource type="Texture2D" uid="uid://ciinlx0yqrvgt" path="res://icon.svg" id="1_co1ke"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_55g6q"]
-radius = 78.4092
+radius = 59.4138
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ffc68"]
-radius = 95.3363
+radius = 62.0725
 
 [node name="spider" type="CharacterBody2D"]
 script = ExtResource("1_6q7jo")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_55g6q")
+disabled = true
 
 [node name="Icon" type="Sprite2D" parent="."]
 position = Vector2(-2, -2)
