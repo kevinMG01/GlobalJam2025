@@ -7,6 +7,7 @@ const SPEED = 400.0
 var enredaderas = 2
 var bajarSubir = "bajar"
 
+
 func _physics_process(delta):
 
 	var direction
@@ -28,6 +29,10 @@ func spawnENREDADERAS():
 	get_parent().add_child(newenredaderas)
 
 func _on_detector_body_entered(body):
+	if body.is_in_group("player"):
+		bajarSubir = "quieto"
+		return
+
 	bajarSubir = "quieto"
 	$lanzarEnredaderas.start()
 

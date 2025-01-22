@@ -28,5 +28,8 @@ shape = SubResource("CircleShape2D_ffc68")
 [node name="lanzarEnredaderas" type="Timer" parent="."]
 wait_time = 3.0
 
+[node name="posEnredadera" type="Marker2D" parent="."]
+position = Vector2(83, -11)
+
 [connection signal="body_entered" from="detector" to="." method="_on_detector_body_entered"]
 [connection signal="timeout" from="lanzarEnredaderas" to="." method="_on_lanzar_enredaderas_timeout"]
