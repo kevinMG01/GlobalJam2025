@@ -1,27 +1,35 @@
 extends CharacterBody2D
 
 
-const SPEED = 300.0
-const JUMP_VELOCITY = -400.0
+const SPEED = 400.0
 
-# Get the gravity from the project settings to be synced with RigidBody nodes.
-var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
-
+var enredaderas = 2
+var bajarSubir = "bajar"
 
 func _physics_process(delta):
-#gddfdd
 
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
+	var direction
+	if bajarSubir == "bajar":
+		direction = 1
+	elif bajarSubir == "subir":
+		direction =-1
+	
 
-	var direction = Input.get_axis("ui_left", "ui_right")
 	if direction:
 		velocity.y = direction * SPEED
 	else:
 		velocity.y = move_toward(velocity.y, 0, SPEED)
-
 	move_and_slide()
 
 
+func _on_detector_body_entered(body):
+	bajarSubir = "quieto"
+	$lanzarEnredaderas.start()
 
+
+func _on_lanzar_enredaderas_timeout():
+	enredaderas -= 1
+	if enredaderas == 0:
+		bajarSubir = "subir"
+		$lanzarEnredaderas.stop()
 
