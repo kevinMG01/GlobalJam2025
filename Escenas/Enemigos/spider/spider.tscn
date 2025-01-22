@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://cy1su1e4sdbak"]
+
+[ext_resource type="Script" path="res://Escenas/Enemigos/spider/spider.gd" id="1_6q7jo"]
+[ext_resource type="Texture2D" uid="uid://ciinlx0yqrvgt" path="res://icon.svg" id="1_co1ke"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_55g6q"]
+radius = 78.4092
+
+[node name="spider" type="CharacterBody2D"]
+script = ExtResource("1_6q7jo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_55g6q")
+
+[node name="Icon" type="Sprite2D" parent="."]
+position = Vector2(-2, -2)
+texture = ExtResource("1_co1ke")

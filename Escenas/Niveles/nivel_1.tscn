@@ -13,7 +13,7 @@ size = Vector2(24, 794)
 size = Vector2(1845, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fsq0c"]
-size = Vector2(187, 339.5)
+size = Vector2(105.5, 339.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_glkr8"]
 size = Vector2(568, 20)
@@ -48,7 +48,7 @@ shape = SubResource("RectangleShape2D_yy861")
 [node name="Area2D" type="Area2D" parent="." groups=["escalera"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(518, 494.75)
+position = Vector2(477.25, 494.75)
 shape = SubResource("RectangleShape2D_fsq0c")
 
 [node name="Icon" type="Sprite2D" parent="."]
