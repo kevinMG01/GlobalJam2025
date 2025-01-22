@@ -41,11 +41,26 @@ func _on_detector_body_entered(body):
 
 
 func _on_lanzar_enredaderas_timeout():
-	if enredaderas == 0:
+	if player != null:
+		if enredaderas == 0:
+			bajarSubir = "subir"
+			$lanzarEnredaderas.stop()
+			return
+		spawnENREDADERAS()
+		enredaderas -= 1
+	else:
 		bajarSubir = "subir"
-		$lanzarEnredaderas.stop()
-		return
-	spawnENREDADERAS()
-	enredaderas -= 1
 
 
+
+
+func _on_radar_body_entered(body):
+	if body.is_in_group("player"):
+		player = body
+	pass # Replace with function body.
+
+
+func _on_radar_body_exited(body):
+	if body.is_in_group("player"):
+		player = null
+	pass # Replace with function body.
