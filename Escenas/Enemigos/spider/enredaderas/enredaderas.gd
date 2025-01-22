@@ -5,10 +5,9 @@ var direccion :Vector2
 
 
 func _ready():
-	randomize()
-	var tip = randf_range(1.2, 2.7)
-	$tiempoMov.wait_time = tip
-	$tiempoMov.start()
+	pass
+
+
 
 func _physics_process(delta):
 	velocity = direccion.normalized() * velocidad

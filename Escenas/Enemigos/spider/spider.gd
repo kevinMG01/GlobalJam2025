@@ -7,6 +7,7 @@ const SPEED = 400.0
 var enredaderas = 2
 var bajarSubir = "bajar"
 
+var player = null
 
 func _physics_process(delta):
 
@@ -25,7 +26,9 @@ func _physics_process(delta):
 
 func spawnENREDADERAS():
 	var newenredaderas = enredar.instantiate()
-	
+	newenredaderas.direccion = player.global_position - $posEnredadera.global_position
+	#newenredaderas.rotation_degrees = $pos_bala.rotation_degrees
+	newenredaderas.global_position = $posEnredadera.global_position
 	get_parent().add_child(newenredaderas)
 
 func _on_detector_body_entered(body):
@@ -42,6 +45,7 @@ func _on_lanzar_enredaderas_timeout():
 		bajarSubir = "subir"
 		$lanzarEnredaderas.stop()
 		return
+	spawnENREDADERAS()
 	enredaderas -= 1
-	
+
 
