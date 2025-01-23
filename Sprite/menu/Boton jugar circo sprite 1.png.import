@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bpdyajnit8804"
-path="res://.godot/imported/Menu Circo siniestro sprite 2.jpg-0333c8979b76211fa1a4312f3a312a6e.ctex"
+uid="uid://bn14bwa3jmujj"
+path="res://.godot/imported/Boton jugar circo sprite 1.png-13f0a008380cccbba61a7da38c567b72.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Escenas/Menu/Menu Circo siniestro sprite 2.jpg"
-dest_files=["res://.godot/imported/Menu Circo siniestro sprite 2.jpg-0333c8979b76211fa1a4312f3a312a6e.ctex"]
+source_file="res://Sprite/menu/Boton jugar circo sprite 1.png"
+dest_files=["res://.godot/imported/Boton jugar circo sprite 1.png-13f0a008380cccbba61a7da38c567b72.ctex"]
 
 [params]
 

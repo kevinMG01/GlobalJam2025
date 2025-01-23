@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c4ur8ltnjbhj1"
-path="res://.godot/imported/Boton jugar circo sprite 2.png-175ebe632f965c41a11c07679e3297f0.ctex"
+uid="uid://dh0thtyckrdmf"
+path="res://.godot/imported/Boton salir circo sprite 2.png-9946ea8914cb7eebb26b90e4af059981.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Escenas/Menu/Boton jugar circo sprite 2.png"
-dest_files=["res://.godot/imported/Boton jugar circo sprite 2.png-175ebe632f965c41a11c07679e3297f0.ctex"]
+source_file="res://Sprite/menu/Boton salir circo sprite 2.png"
+dest_files=["res://.godot/imported/Boton salir circo sprite 2.png-9946ea8914cb7eebb26b90e4af059981.ctex"]
 
 [params]
 

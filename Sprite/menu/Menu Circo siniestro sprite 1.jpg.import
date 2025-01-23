@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://nbi6wehaf1mx"
-path="res://.godot/imported/Menu Circo siniestro sprite 1.jpg-41bb5dc55e1154159e4631b9e9fb3638.ctex"
+path="res://.godot/imported/Menu Circo siniestro sprite 1.jpg-4fa683e6544ee722971ea219a68d8d35.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Escenas/Menu/Menu Circo siniestro sprite 1.jpg"
-dest_files=["res://.godot/imported/Menu Circo siniestro sprite 1.jpg-41bb5dc55e1154159e4631b9e9fb3638.ctex"]
+source_file="res://Sprite/menu/Menu Circo siniestro sprite 1.jpg"
+dest_files=["res://.godot/imported/Menu Circo siniestro sprite 1.jpg-4fa683e6544ee722971ea219a68d8d35.ctex"]
 
 [params]
 
