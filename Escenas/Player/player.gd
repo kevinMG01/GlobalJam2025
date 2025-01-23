@@ -72,6 +72,7 @@ func climb():
 		else:
 			if going_up:
 				velocity.y = 0
+
 func _on_detector_escaleras_area_entered(area):
 	area.get_name()
 	if area.is_in_group("escalera"):
