@@ -4,12 +4,22 @@ var enredar = preload("res://Escenas/Enemigos/spider/enredaderas/enredaderas.tsc
 
 const SPEED = 400.0
 
+@onready var raycast: RayCast2D = $detectorTechos
 var enredaderas = 2
-var bajarSubir = "bajar"
+var bajarSubir = "subir"
 
 var player = null
+var tiempoTecho = 3
 
 func _physics_process(delta):
+	#if raycast.is_colliding() and not raycastActivado:
+	if raycast.is_colliding():
+		
+		var collider = raycast.get_collider()
+		bajarSubir = "quieto"
+		print("ssssssss")
+		$tiTecho.wait_time = tiempoTecho
+		$tiTecho.start()
 
 	var direction
 	if bajarSubir == "bajar":
@@ -24,6 +34,11 @@ func _physics_process(delta):
 
 	move_and_slide()
 
+
+
+
+
+
 func spawnENREDADERAS():
 	var newenredaderas = enredar.instantiate()
 	newenredaderas.direccion = player.global_position - $posEnredadera.global_position
@@ -32,6 +47,7 @@ func spawnENREDADERAS():
 	get_parent().add_child(newenredaderas)
 
 func _on_detector_body_entered(body):
+	#si la araña care por encima del player
 	if body.is_in_group("player"):
 		bajarSubir = "quieto"
 		return
@@ -57,10 +73,16 @@ func _on_lanzar_enredaderas_timeout():
 func _on_radar_body_entered(body):
 	if body.is_in_group("player"):
 		player = body
-	pass # Replace with function body.
+
 
 
 func _on_radar_body_exited(body):
 	if body.is_in_group("player"):
 		player = null
-	pass # Replace with function body.
+
+
+
+func _on_ti_techo_timeout():
+	bajarSubir = "bajar"
+	$tiTecho.stop()
+
