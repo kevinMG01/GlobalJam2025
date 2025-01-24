@@ -29,7 +29,6 @@ texture = ExtResource("1_co1ke")
 shape = SubResource("CircleShape2D_ffc68")
 
 [node name="lanzarEnredaderas" type="Timer" parent="."]
-wait_time = 3.0
 
 [node name="posEnredadera" type="Marker2D" parent="."]
 position = Vector2(-125, -39)

@@ -10,8 +10,10 @@ var bajarSubir = "subir"
 
 var raycastActivado = false
 var player = null
-var tiempoTecho = 3
+var tiempoTecho = 5
 
+
+var tiempoLanzadorEnredaderas = 3
 
 func _physics_process(delta):
 	if raycast.is_colliding() and raycastActivado == false:
@@ -55,6 +57,7 @@ func _on_detector_body_entered(body):
 		return
 
 	bajarSubir = "quieto"
+	$lanzarEnredaderas.wait_time = tiempoLanzadorEnredaderas
 	$lanzarEnredaderas.start()
 
 
