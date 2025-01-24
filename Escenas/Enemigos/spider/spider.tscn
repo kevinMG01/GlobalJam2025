@@ -45,8 +45,11 @@ target_position = Vector2(7.78063e-06, 89)
 
 [node name="tiTecho" type="Timer" parent="."]
 
+[node name="subir" type="Timer" parent="."]
+
 [connection signal="body_entered" from="detector" to="." method="_on_detector_body_entered"]
 [connection signal="timeout" from="lanzarEnredaderas" to="." method="_on_lanzar_enredaderas_timeout"]
 [connection signal="body_entered" from="radar" to="." method="_on_radar_body_entered"]
 [connection signal="body_exited" from="radar" to="." method="_on_radar_body_exited"]
 [connection signal="timeout" from="tiTecho" to="." method="_on_ti_techo_timeout"]
+[connection signal="timeout" from="subir" to="." method="_on_subir_timeout"]

@@ -19,6 +19,7 @@ func _physics_process(delta):
 		bajarSubir = "quieto"
 		$tiTecho.wait_time = tiempoTecho
 		$tiTecho.start()
+		enredaderas = 2
 		raycastActivado = true
 	
 	if not raycast.is_colliding() and raycastActivado == true:
@@ -49,6 +50,8 @@ func _on_detector_body_entered(body):
 	#si la araña care por encima del player
 	if body.is_in_group("player"):
 		bajarSubir = "quieto"
+		$subir.wait_time = 1
+		$subir.start()
 		return
 
 	bajarSubir = "quieto"
@@ -81,3 +84,9 @@ func _on_ti_techo_timeout():
 	bajarSubir = "bajar"
 	$tiTecho.stop()
 
+
+
+func _on_subir_timeout():
+	bajarSubir = "subir"
+	$subir.stop()
+	pass # Replace with function body.
