@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://dnxj2xv5oxh1t"]
+[gd_scene load_steps=9 format=3 uid="uid://dnxj2xv5oxh1t"]
 
 [ext_resource type="PackedScene" uid="uid://bgnsbw7lpfa51" path="res://Escenas/Player/player.tscn" id="1_20s75"]
 [ext_resource type="Texture2D" uid="uid://ciinlx0yqrvgt" path="res://icon.svg" id="2_xoyw4"]
+[ext_resource type="PackedScene" uid="uid://bkykumy5008s6" path="res://Escenas/Enemigos/murcielago/murcielago.tscn" id="3_3slqb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nnppg"]
 size = Vector2(25, 789)
@@ -63,3 +64,6 @@ texture = ExtResource("2_xoyw4")
 position = Vector2(708, 328)
 shape = SubResource("RectangleShape2D_glkr8")
 one_way_collision = true
+
+[node name="murcielago" parent="." instance=ExtResource("3_3slqb")]
+position = Vector2(527, 49)
