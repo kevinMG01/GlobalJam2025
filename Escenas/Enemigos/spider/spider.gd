@@ -8,18 +8,21 @@ const SPEED = 400.0
 var enredaderas = 2
 var bajarSubir = "subir"
 
+var raycastActivado = false
 var player = null
 var tiempoTecho = 3
 
+
 func _physics_process(delta):
-	#if raycast.is_colliding() and not raycastActivado:
-	if raycast.is_colliding():
-		
+	if raycast.is_colliding() and raycastActivado == false:
 		var collider = raycast.get_collider()
 		bajarSubir = "quieto"
-		print("ssssssss")
 		$tiTecho.wait_time = tiempoTecho
 		$tiTecho.start()
+		raycastActivado = true
+	
+	if not raycast.is_colliding() and raycastActivado == true:
+		raycastActivado = false
 
 	var direction
 	if bajarSubir == "bajar":
@@ -33,10 +36,6 @@ func _physics_process(delta):
 		velocity.y = direction * SPEED
 
 	move_and_slide()
-
-
-
-
 
 
 func spawnENREDADERAS():
@@ -68,18 +67,14 @@ func _on_lanzar_enredaderas_timeout():
 		bajarSubir = "subir"
 
 
-
-
 func _on_radar_body_entered(body):
 	if body.is_in_group("player"):
 		player = body
 
 
-
 func _on_radar_body_exited(body):
 	if body.is_in_group("player"):
 		player = null
-
 
 
 func _on_ti_techo_timeout():
