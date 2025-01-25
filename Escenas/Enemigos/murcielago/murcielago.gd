@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-var objeto #= preload()   #colocar la ruta del objeto
+var objeto = preload("res://Escenas/Enemigos/murcielago/cuchillo/cuchillo.tscn")   #colocar la ruta del objeto
 
 const speed = 900.0
 const SPEED = 200.0
@@ -46,8 +46,9 @@ func follow():
 
 
 func spawnObjetos():
-	var newObjeto = objeto.intantiate()
-	
+	var newObjeto = objeto.instantiate()
+	#newObjeto.direccion = Vector2(1,0)
+	newObjeto.global_position = $poscuchillo.global_position
 	get_parent().add_child(newObjeto)
 	
 	pass
