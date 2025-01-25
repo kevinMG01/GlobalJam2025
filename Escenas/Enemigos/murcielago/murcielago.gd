@@ -1,13 +1,18 @@
 extends CharacterBody2D
 
+var objeto #= preload()   #colocar la ruta del objeto
 
+const speed = 900.0
 const SPEED = 200.0
 
 var player = null
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 
+var lanzarObjeto = false
+
 func _ready():
 	velocity.x = -SPEED
+
 func _next_to_left_Wall() -> bool:
 	return $Leftray.is_colliding()
 	
@@ -24,16 +29,28 @@ func _physics_process(delta):
 	_flip()
 	follow()
 	move_and_slide()
+
 func follow():
 	if player != null:
-		if global_position.x > player.global_position.x + 6:
-			velocity.x -= SPEED
-		if global_position.x < player.global_position.x - 6:
-			velocity.x += SPEED
+		# Calculamos la dirección hacia el jugador (diferencia entre posiciones)
+		var direction = player.global_position - global_position
+		
+		# Verificamos la distancia en el eje X
+		if abs(direction.x) > 6:  # Si la distancia en X es mayor a 6 unidades
+			velocity.x = sign(direction.x) * SPEED  # Movemos en la dirección del jugador (sin normalizar)
+		else:
+			velocity.x = 0  # Si está cerca en X, detenemos el movimiento
+			if lanzarObjeto == false:
+				$Timer.start()
+				lanzarObjeto = true
+
+
+func spawnObjetos():
+	var newObjeto = objeto.intantiate()
+	
+	get_parent().add_child(newObjeto)
+	
 	pass
-
-
-
 
 func _on_area_2d_body_entered(body):
 	if body.is_in_group("player"):
@@ -44,4 +61,10 @@ func _on_area_2d_body_entered(body):
 func _on_area_2d_body_exited(body):
 	if body.is_in_group("player"):
 		player = null
-	pass # Replace with function body.
+
+
+
+func _on_timer_timeout():
+	spawnObjetos()
+	$Timer.stop()
+	lanzarObjeto = false

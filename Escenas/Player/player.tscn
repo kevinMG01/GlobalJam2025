@@ -9,7 +9,7 @@ size = Vector2(93, 104.5)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n0qev"]
 size = Vector2(73.5, 105)
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_cjwrm")
 
 [node name="Icon" type="Sprite2D" parent="."]
