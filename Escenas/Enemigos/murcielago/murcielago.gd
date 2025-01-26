@@ -2,16 +2,17 @@ extends CharacterBody2D
 
 var objeto = preload("res://Escenas/Enemigos/murcielago/cuchillo/cuchillo.tscn")   #colocar la ruta del objeto
 
-const speed = 900.0
-const SPEED = 200.0
+var speed = 900.0
+var SPEED = 200.0
 
 var player = null
-# Get the gravity from the project settings to be synced with RigidBody nodes.
 
 var lanzarObjeto = false
 
 func _ready():
+	$AnimatedSprite2D.play()
 	velocity.x = -SPEED
+	$move.play()
 
 func _next_to_left_Wall() -> bool:
 	return $Leftray.is_colliding()
@@ -21,9 +22,10 @@ func _next_to_right_Wall() -> bool:
 
 
 func _flip():
-	if _next_to_left_Wall() or _next_to_right_Wall():
-		velocity.x *= -1
-		$Sprite2D.scale.x *= -1
+	if player == null:
+		if _next_to_left_Wall() or _next_to_right_Wall():
+			velocity.x *= -1
+			$AnimatedSprite2D.scale.x *= -1
 
 func _physics_process(delta):
 	_flip()
@@ -42,6 +44,7 @@ func follow():
 			velocity.x = 0  # Si está cerca en X, detenemos el movimiento
 			if lanzarObjeto == false:
 				$Timer.start()
+				$tirar.play()
 				lanzarObjeto = true
 
 
@@ -51,7 +54,7 @@ func spawnObjetos():
 	newObjeto.global_position = $poscuchillo.global_position
 	get_parent().add_child(newObjeto)
 	
-	pass
+
 
 func _on_area_2d_body_entered(body):
 	if body.is_in_group("player"):
@@ -67,5 +70,21 @@ func _on_area_2d_body_exited(body):
 
 func _on_timer_timeout():
 	spawnObjetos()
-	$Timer.stop()
 	lanzarObjeto = false
+	$Timer.stop()
+
+
+
+func _on_detector_area_entered(area):
+	if area.is_in_group("burbuja"):
+		speed = 0
+		SPEED = 0
+		$Timer2.start(5)
+
+
+
+func _on_timer_2_timeout():
+	speed = 900.0
+	SPEED = 200.0
+	$Timer2.stop()
+	pass # Replace with function body.

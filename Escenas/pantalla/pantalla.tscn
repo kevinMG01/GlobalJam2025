@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://8403robo13qw"]
+
+[ext_resource type="Script" path="res://Escenas/pantalla/pantalla.gd" id="1_20jv7"]
+
+[node name="pantalla" type="CanvasLayer"]
+script = ExtResource("1_20jv7")
+
+[node name="textVida" type="Label" parent="."]
+custom_minimum_size = Vector2(100, 30)
+offset_left = 74.0
+offset_top = 53.0
+offset_right = 114.0
+offset_bottom = 76.0
+theme_override_font_sizes/font_size = 21
+text = "vida"

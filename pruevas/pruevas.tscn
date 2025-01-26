@@ -1,0 +1,47 @@
+[gd_scene load_steps=8 format=3 uid="uid://cae2dcnjpiyw2"]
+
+[ext_resource type="PackedScene" uid="uid://cy1su1e4sdbak" path="res://Escenas/Enemigos/spider/spider.tscn" id="1_7kcd3"]
+[ext_resource type="PackedScene" uid="uid://bgnsbw7lpfa51" path="res://Escenas/Player/player.tscn" id="2_l5s8i"]
+[ext_resource type="PackedScene" uid="uid://dfggjgvr8k30p" path="res://Escenas/Enemigos/payaso/payaso.tscn" id="3_80md3"]
+[ext_resource type="PackedScene" uid="uid://bkykumy5008s6" path="res://Escenas/Enemigos/murcielago/murcielago.tscn" id="4_q57e5"]
+[ext_resource type="PackedScene" uid="uid://8403robo13qw" path="res://Escenas/pantalla/pantalla.tscn" id="5_olhj2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8c28a"]
+size = Vector2(3149, 33)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lonsj"]
+size = Vector2(206, 434.5)
+
+[node name="pruevas" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(1391.5, 660)
+shape = SubResource("RectangleShape2D_8c28a")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(487, 187)
+shape = SubResource("RectangleShape2D_8c28a")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(787, 441)
+shape = SubResource("RectangleShape2D_lonsj")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-84, 436)
+shape = SubResource("RectangleShape2D_lonsj")
+
+[node name="spider" parent="." instance=ExtResource("1_7kcd3")]
+position = Vector2(1713, 515)
+
+[node name="Player" parent="." instance=ExtResource("2_l5s8i")]
+position = Vector2(1312, 483)
+
+[node name="payaso" parent="." instance=ExtResource("3_80md3")]
+position = Vector2(646, 488)
+
+[node name="murcielago" parent="." instance=ExtResource("4_q57e5")]
+position = Vector2(358, 310)
+
+[node name="pantalla" parent="." instance=ExtResource("5_olhj2")]

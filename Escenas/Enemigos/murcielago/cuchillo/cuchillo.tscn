@@ -1,10 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://dichynimulnwo"]
+[gd_scene load_steps=5 format=3 uid="uid://dichynimulnwo"]
 
 [ext_resource type="Script" path="res://Escenas/Enemigos/murcielago/cuchillo/cuchillo.gd" id="1_2v0o8"]
 [ext_resource type="Texture2D" uid="uid://ciinlx0yqrvgt" path="res://icon.svg" id="1_rtdje"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mdaw6"]
 size = Vector2(30, 29)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_k3oq7"]
+radius = 19.0263
 
 [node name="cuchillo" type="CharacterBody2D"]
 script = ExtResource("1_2v0o8")
@@ -17,3 +20,16 @@ texture = ExtResource("1_rtdje")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1, -0.5)
 shape = SubResource("RectangleShape2D_mdaw6")
+disabled = true
+
+[node name="detector" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="detector"]
+shape = SubResource("CircleShape2D_k3oq7")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 6.0
+autostart = true
+
+[connection signal="body_entered" from="detector" to="." method="_on_detector_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

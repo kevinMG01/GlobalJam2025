@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bgnsbw7lpfa51"]
+[gd_scene load_steps=22 format=3 uid="uid://bgnsbw7lpfa51"]
 
 [ext_resource type="Script" path="res://Escenas/Player/player.gd" id="1_cjwrm"]
 [ext_resource type="Texture2D" uid="uid://bm5p0r7phpsdn" path="res://sprites/player/salto/34 sin título_20250125224803 - copia (7).png" id="2_8lopt"]
@@ -9,6 +9,13 @@
 [ext_resource type="Texture2D" uid="uid://c5mpshbg0p2pv" path="res://sprites/player/corer/34 sin título_20250125224803 - copia.png" id="7_bskvo"]
 [ext_resource type="Texture2D" uid="uid://dh0rfthyho344" path="res://sprites/player/salto/34 sin título_20250125224803 - copia (6).png" id="8_8ojvj"]
 [ext_resource type="Texture2D" uid="uid://c5ddews5lxo7r" path="res://sprites/player/salto/34 sin título_20250125224803 - copia (8).png" id="9_l0cho"]
+[ext_resource type="Texture2D" uid="uid://d1sr6rmbju4cs" path="res://sprites/player/masculino/salto/37 sin título_20250126002328 - copia (3).png" id="10_8vko6"]
+[ext_resource type="Texture2D" uid="uid://dq7x3un7dh31e" path="res://sprites/player/masculino/correr/37 sin título_20250126002328 - copia (7).png" id="11_20c8h"]
+[ext_resource type="Texture2D" uid="uid://dayvygiykfxrh" path="res://sprites/player/masculino/correr/37 sin título_20250126002328 - copia.png" id="12_1cdnn"]
+[ext_resource type="Texture2D" uid="uid://djhfjjdmpkg4v" path="res://sprites/player/masculino/correr/37 sin título_20250126002328 - copia (5).png" id="13_enorj"]
+[ext_resource type="Texture2D" uid="uid://ds4xqjqnknuy5" path="res://sprites/player/masculino/correr/37 sin título_20250126002328 - copia (9).png" id="14_wpivg"]
+[ext_resource type="Texture2D" uid="uid://c4lj77dktqxhm" path="res://sprites/player/masculino/correr/37 sin título_20250126002328 - copia (8).png" id="15_jx02d"]
+[ext_resource type="Texture2D" uid="uid://djtj4atjw8fwc" path="res://sprites/player/masculino/37 sin título_20250126002328 - copia (4).png" id="16_p8j3m"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_avyy7"]
 size = Vector2(51, 108.25)
@@ -16,9 +23,8 @@ size = Vector2(51, 108.25)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n0qev"]
 size = Vector2(31, 104)
 
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l2nj1"]
-size = Vector2(39, 25.5)
+size = Vector2(39, 106.5)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_b3jms"]
 animations = [{
@@ -72,6 +78,49 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_wirww"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_8vko6")
+}],
+"loop": true,
+"name": &"caida",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_20c8h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_1cdnn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_enorj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_wpivg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_jx02d")
+}],
+"loop": true,
+"name": &"correr",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("16_p8j3m")
+}],
+"loop": true,
+"name": &"normal",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"salto",
+"speed": 5.0
+}]
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_cjwrm")
@@ -92,13 +141,26 @@ shape = SubResource("RectangleShape2D_n0qev")
 [node name="detectar" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="detectar"]
-position = Vector2(-10.5, 46.75)
+position = Vector2(-10.5, 6.25)
 shape = SubResource("RectangleShape2D_l2nj1")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.6, 0.6)
 sprite_frames = SubResource("SpriteFrames_b3jms")
-animation = &"caida"
+animation = &"normal"
+
+[node name="maasculino" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 1)
+scale = Vector2(0.6, 0.6)
+sprite_frames = SubResource("SpriteFrames_wirww")
+animation = &"normal"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position_smoothing_enabled = true
+rotation_smoothing_enabled = true
+drag_horizontal_enabled = true
+editor_draw_limits = true
+editor_draw_drag_margin = true
 
 [connection signal="area_entered" from="detectorEscaleras" to="." method="_on_detector_escaleras_area_entered"]
 [connection signal="area_exited" from="detectorEscaleras" to="." method="_on_detector_escaleras_area_exited"]

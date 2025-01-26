@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
-const  speed2 = 150.0
-const SPEED = 5
+var  speed2 = 150.0
+var SPEED = 5
 const JUMP_VELOCITY = -400.0
 
 
@@ -76,4 +76,20 @@ func _on_area_2d_body_entered(body):
 func _on_area_2d_body_exited(body):
 	if body.is_in_group("player"):
 		player = null
-	pass # Replace with function body.
+
+
+
+func _on_detectar_area_entered(area):
+	if area.is_in_group("burbuja"):
+		speed2 = 0
+		SPEED = 0
+		$Timer.start()
+
+
+
+func _on_timer_timeout():
+	speed2 = 150.0
+	SPEED = 5
+	$Timer.stop()
+
+

@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://dfggjgvr8k30p"]
+[gd_scene load_steps=6 format=3 uid="uid://dfggjgvr8k30p"]
 
 [ext_resource type="Script" path="res://Escenas/Enemigos/payaso/payaso.gd" id="1_8q1uy"]
 [ext_resource type="Texture2D" uid="uid://ciinlx0yqrvgt" path="res://icon.svg" id="2_0xfok"]
@@ -9,33 +9,43 @@ size = Vector2(54, 62)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mpoey"]
 size = Vector2(429, 235)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_esso0"]
+size = Vector2(63, 68)
+
 [node name="payaso" type="CharacterBody2D"]
 script = ExtResource("1_8q1uy")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(10, 32.5)
+position = Vector2(0, -0.5)
 scale = Vector2(0.4375, 0.492188)
 texture = ExtResource("2_0xfok")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(9, 32)
 shape = SubResource("RectangleShape2D_c5ov0")
 
 [node name="rayo" type="Node" parent="."]
 
 [node name="Rightray" type="RayCast2D" parent="rayo"]
-position = Vector2(9, 33)
+position = Vector2(1, 0)
 target_position = Vector2(33, 0)
 
 [node name="Leftray" type="RayCast2D" parent="rayo"]
-position = Vector2(10, 32)
 target_position = Vector2(-54, 0)
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-222, 17)
 shape = SubResource("RectangleShape2D_mpoey")
+
+[node name="detectar" type="Area2D" parent="."]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="detectar"]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_esso0")
+
+[node name="Timer" type="Timer" parent="."]
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="area_entered" from="detectar" to="." method="_on_detectar_area_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
