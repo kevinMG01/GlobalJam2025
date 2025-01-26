@@ -24,10 +24,10 @@ func _physics_process(delta):
 			velocity.x = -speed2
 		#
 		if velocity.x < 0:
-			$Sprite2D.flip_h = false
+			$AnimatedSprite2D.flip_h = false
 			#direction = 1
 		elif velocity.x > 0:
-			$Sprite2D.flip_h = true 
+			$AnimatedSprite2D.flip_h = true 
 			#direction = -1
 	
 
@@ -60,8 +60,10 @@ func follow():
 		
 		if global_position.x > player.global_position.x + 6:
 			velocity.x -= SPEED
+			$AnimatedSprite2D.flip_h = false
 		if global_position.x < player.global_position.x - 6:
 			velocity.x += SPEED
+			$AnimatedSprite2D.flip_h = true 
 		
 
 

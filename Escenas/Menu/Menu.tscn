@@ -36,25 +36,25 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wne2y"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0an72"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dosnq"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nhedo"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2hg6u"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dosnq"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0an72"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3qjy6"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wne2y"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kdpuy"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_t4y3g"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7nemn"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5rcmh"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_t4y3g"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kdpuy"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3qjy6"]
 
 [node name="menu" type="Node2D"]
 script = ExtResource("1_qnjbp")
@@ -100,11 +100,11 @@ offset_left = -237.0
 offset_top = -149.0
 offset_right = -118.0
 offset_bottom = 71.0
-theme_override_styles/focus = SubResource("StyleBoxEmpty_wne2y")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_0an72")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_dosnq")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_nhedo")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_2hg6u")
-theme_override_styles/normal = SubResource("StyleBoxEmpty_dosnq")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_0an72")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_wne2y")
 icon = ExtResource("11_q6v5g")
 
 [node name="fem" type="Button" parent="eleccion"]
@@ -112,11 +112,11 @@ offset_left = 144.0
 offset_top = -142.0
 offset_right = 270.0
 offset_bottom = 76.0
-theme_override_styles/focus = SubResource("StyleBoxEmpty_3qjy6")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_kdpuy")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_t4y3g")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_7nemn")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_5rcmh")
-theme_override_styles/normal = SubResource("StyleBoxEmpty_t4y3g")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_kdpuy")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_3qjy6")
 icon = ExtResource("12_tskn3")
 
 [connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
