@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://b8flyx1h7jimc"]
+
+[ext_resource type="Texture2D" uid="uid://pvjw0ojxkn5q" path="res://sprites/objetos/35 sin título_20250125232231.png" id="1_ra3p7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h0uqv"]
+size = Vector2(804, 108)
+
+[node name="plataforma" type="StaticBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(31, -29)
+shape = SubResource("RectangleShape2D_h0uqv")
+one_way_collision = true
+
+[node name="35SinTítulo20250125232231" type="Sprite2D" parent="."]
+texture = ExtResource("1_ra3p7")

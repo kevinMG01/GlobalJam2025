@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://c8jol2un8p31i"]
+
+[ext_resource type="Texture2D" uid="uid://mxreo41l26yo" path="res://sprites/objetos/36 sin título_20250125233434.png" id="1_g4fvu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f22uh"]
+size = Vector2(140, 406)
+
+[node name="escalera" type="Area2D" groups=["escalera"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-7, 1)
+shape = SubResource("RectangleShape2D_f22uh")
+
+[node name="36SinTítulo20250125233434" type="Sprite2D" parent="."]
+position = Vector2(-1, 9)
+texture = ExtResource("1_g4fvu")
