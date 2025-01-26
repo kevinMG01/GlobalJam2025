@@ -1,0 +1,118 @@
+[gd_scene load_steps=12 format=3 uid="uid://cs0pjiupxua6q"]
+
+[ext_resource type="Texture2D" uid="uid://b788ft5gq4iwp" path="res://Sprite/circo escena de entrada2.0 final.jpg" id="1_qu2vn"]
+[ext_resource type="PackedScene" uid="uid://bgnsbw7lpfa51" path="res://Escenas/Player/player.tscn" id="2_unb2k"]
+[ext_resource type="PackedScene" uid="uid://b8flyx1h7jimc" path="res://Escenas/objetos/plataforma.tscn" id="3_plgok"]
+[ext_resource type="PackedScene" uid="uid://cy1su1e4sdbak" path="res://Escenas/Enemigos/spider/spider.tscn" id="4_dc8x3"]
+[ext_resource type="PackedScene" uid="uid://c8jol2un8p31i" path="res://Escenas/objetos/escalera.tscn" id="5_xribj"]
+[ext_resource type="PackedScene" uid="uid://bkykumy5008s6" path="res://Escenas/Enemigos/murcielago/murcielago.tscn" id="6_s4fq4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v6vy7"]
+size = Vector2(18, 1186)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yidwg"]
+size = Vector2(23, 1053)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lok3p"]
+size = Vector2(5773.64, 20)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_sihic"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oav3a"]
+size = Vector2(196.176, 387.731)
+
+[node name="Nivel3" type="Node2D"]
+
+[node name="paredBordes" type="Node2D" parent="."]
+
+[node name="der" type="StaticBody2D" parent="paredBordes"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="paredBordes/der"]
+position = Vector2(6, 186)
+shape = SubResource("RectangleShape2D_v6vy7")
+
+[node name="izq" type="StaticBody2D" parent="paredBordes"]
+position = Vector2(1836, -14)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="paredBordes/izq"]
+position = Vector2(3917.5, 143.5)
+shape = SubResource("RectangleShape2D_yidwg")
+
+[node name="abajo" type="StaticBody2D" parent="paredBordes"]
+position = Vector2(-162, 656)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="paredBordes/abajo"]
+position = Vector2(3041.18, 10)
+shape = SubResource("RectangleShape2D_lok3p")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="paredBordes/abajo"]
+position = Vector2(2909.5, -1069)
+scale = Vector2(3.6, 1)
+shape = SubResource("RectangleShape2D_lok3p")
+
+[node name="CircoEscenaDeEntrada2_0Final" type="Sprite2D" parent="."]
+position = Vector2(973, 114)
+texture = ExtResource("1_qu2vn")
+
+[node name="CircoEscenaDeEntrada2_0Final" type="Sprite2D" parent="CircoEscenaDeEntrada2_0Final"]
+position = Vector2(1922, 0)
+texture = ExtResource("1_qu2vn")
+
+[node name="CircoEscenaDeEntrada2_0Final" type="Sprite2D" parent="CircoEscenaDeEntrada2_0Final/CircoEscenaDeEntrada2_0Final"]
+position = Vector2(1922, 0)
+texture = ExtResource("1_qu2vn")
+
+[node name="Player" parent="." instance=ExtResource("2_unb2k")]
+position = Vector2(82, 573)
+
+[node name="plataforma" parent="." instance=ExtResource("3_plgok")]
+position = Vector2(770, 459)
+
+[node name="plataforma2" parent="." instance=ExtResource("3_plgok")]
+position = Vector2(1477, 185)
+
+[node name="plataforma3" parent="." instance=ExtResource("3_plgok")]
+position = Vector2(2282, 185)
+
+[node name="plataforma4" parent="." instance=ExtResource("3_plgok")]
+position = Vector2(2874, 295)
+
+[node name="plataforma5" parent="." instance=ExtResource("3_plgok")]
+position = Vector2(3648, 2)
+
+[node name="spider" parent="." instance=ExtResource("4_dc8x3")]
+position = Vector2(3733, -264)
+
+[node name="spider2" parent="." instance=ExtResource("4_dc8x3")]
+position = Vector2(2422, 534)
+
+[node name="plataforma6" parent="." instance=ExtResource("3_plgok")]
+position = Vector2(1817, 566)
+rotation = 1.57691
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2(1849, 444)
+scale = Vector2(0.570918, 0.892372)
+physics_material_override = SubResource("PhysicsMaterial_sihic")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(-10.5103, 5.60297)
+shape = SubResource("RectangleShape2D_oav3a")
+
+[node name="escalera" parent="." instance=ExtResource("5_xribj")]
+position = Vector2(462, 520)
+scale = Vector2(0.562414, 0.740101)
+
+[node name="escalera2" parent="." instance=ExtResource("5_xribj")]
+position = Vector2(1151, 250)
+scale = Vector2(0.562414, 0.740101)
+
+[node name="murcielago" parent="." instance=ExtResource("6_s4fq4")]
+position = Vector2(4806, -150)
+
+[node name="plataforma7" parent="." instance=ExtResource("3_plgok")]
+position = Vector2(4818, 77)
+
+[node name="escalera3" parent="." instance=ExtResource("5_xribj")]
+position = Vector2(4817, 332)
+scale = Vector2(0.56, 1.64)
