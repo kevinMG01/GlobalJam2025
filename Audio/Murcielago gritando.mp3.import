@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/Murcielago gritando.mp3-25b1ef439f6a0187e0b66
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0
 bpm=0
 beat_count=0

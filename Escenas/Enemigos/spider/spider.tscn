@@ -34,7 +34,7 @@ shape = SubResource("CircleShape2D_ffc68")
 [node name="lanzarEnredaderas" type="Timer" parent="."]
 
 [node name="posEnredadera" type="Marker2D" parent="."]
-position = Vector2(0, -55)
+position = Vector2(0, -2)
 
 [node name="radar" type="Area2D" parent="."]
 
@@ -56,9 +56,13 @@ volume_db = -10.0
 [node name="disparar" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_1ea8k")
 
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="area_entered" from="detector" to="." method="_on_detector_area_entered"]
 [connection signal="body_entered" from="detector" to="." method="_on_detector_body_entered"]
 [connection signal="timeout" from="lanzarEnredaderas" to="." method="_on_lanzar_enredaderas_timeout"]
 [connection signal="body_entered" from="radar" to="." method="_on_radar_body_entered"]
 [connection signal="body_exited" from="radar" to="." method="_on_radar_body_exited"]
 [connection signal="timeout" from="tiTecho" to="." method="_on_ti_techo_timeout"]
 [connection signal="timeout" from="subir" to="." method="_on_subir_timeout"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

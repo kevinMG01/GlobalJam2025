@@ -155,6 +155,13 @@ scale = Vector2(0.6, 0.6)
 sprite_frames = SubResource("SpriteFrames_wirww")
 animation = &"normal"
 
+[node name="Camera2D" type="Camera2D" parent="."]
+position_smoothing_enabled = true
+rotation_smoothing_enabled = true
+drag_horizontal_enabled = true
+editor_draw_limits = true
+editor_draw_drag_margin = true
+
 [connection signal="area_entered" from="detectorEscaleras" to="." method="_on_detector_escaleras_area_entered"]
 [connection signal="area_exited" from="detectorEscaleras" to="." method="_on_detector_escaleras_area_exited"]
 [connection signal="area_entered" from="detectar" to="." method="_on_detectar_area_entered"]

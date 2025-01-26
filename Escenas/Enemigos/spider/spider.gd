@@ -103,3 +103,19 @@ func _on_subir_timeout():
 	$caminar.play()
 	$subir.stop()
 	pass # Replace with function body.
+
+
+func _on_detector_area_entered(area):
+	if area.is_in_group("burbuja"):
+		bajarSubir = "quieta"
+		$caminar.stop()
+		$lanzarEnredaderas.stop()
+		$Timer.start(8)
+
+
+
+func _on_timer_timeout():
+	bajarSubir = "subir"
+	$lanzarEnredaderas.start()
+	$Timer.stop()
+

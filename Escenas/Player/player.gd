@@ -15,7 +15,7 @@ var going_up = false
 var acceleration = 100
 var max_speed = 200
 
-
+var enredadera = false
 
 
 func _ready():
@@ -29,7 +29,8 @@ func _ready():
 	$maasculino.play()
 
 func _physics_process(delta):
-	
+	if GlobalVar.vidasJugador <= 0:
+		queue_free()
 	if Input.is_action_just_pressed("UI_s"):
 		if cantidadBurbujas > 0:
 			spawnBurbujas()
@@ -57,6 +58,12 @@ func _physics_process(delta):
 		if is_on_floor():
 			$maasculino.animation = "normal"
 			$AnimatedSprite2D.animation = "normal"
+	
+	if enredadera == true:
+		if is_on_floor():
+			gravity = 10000
+		if not is_on_floor():
+			gravity = 100
 
 	move_and_slide()
 
@@ -123,13 +130,15 @@ func _on_detector_escaleras_area_exited(area):
 
 func _on_detectar_area_entered(area):
 	if area.is_in_group("enredadera"):
-		SPEED = 150.0
-		gravity = 10000
+		SPEED = 60.0
+
+		enredadera = true
 
 
 func _on_detectar_area_exited(area):
 	if area.is_in_group("enredadera"):
 		SPEED = 300.0
 		gravity = 2000
+		enredadera = false
 
 

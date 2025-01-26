@@ -74,7 +74,7 @@ animation = &"bu"
 shape = SubResource("CircleShape2D_368n2")
 disabled = true
 
-[node name="detector" type="Area2D" parent="."]
+[node name="detector" type="Area2D" parent="." groups=["burbuja"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="detector"]
 shape = SubResource("CircleShape2D_bglrh")
