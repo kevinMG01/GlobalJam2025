@@ -89,7 +89,7 @@ position = Vector2(3648, 2)
 position = Vector2(3733, -264)
 
 [node name="spider2" parent="." instance=ExtResource("4_dc8x3")]
-position = Vector2(2422, 534)
+position = Vector2(1720, -293)
 
 [node name="plataforma6" parent="." instance=ExtResource("3_plgok")]
 position = Vector2(1817, 566)
@@ -105,21 +105,25 @@ position = Vector2(-10.5103, 5.60297)
 shape = SubResource("RectangleShape2D_oav3a")
 
 [node name="escalera" parent="." instance=ExtResource("5_xribj")]
-position = Vector2(462, 520)
+position = Vector2(351, 520)
 scale = Vector2(0.562414, 0.740101)
 
 [node name="escalera2" parent="." instance=ExtResource("5_xribj")]
-position = Vector2(1151, 250)
+position = Vector2(1051, 250)
 scale = Vector2(0.562414, 0.740101)
 
 [node name="murcielago" parent="." instance=ExtResource("6_s4fq4")]
-position = Vector2(4806, -150)
+position = Vector2(4817, -328)
 
 [node name="plataforma7" parent="." instance=ExtResource("3_plgok")]
 position = Vector2(4818, 77)
 
 [node name="escalera3" parent="." instance=ExtResource("5_xribj")]
-position = Vector2(4817, 332)
+position = Vector2(5312, 332)
+scale = Vector2(0.56, 1.64)
+
+[node name="escalera4" parent="." instance=ExtResource("5_xribj")]
+position = Vector2(4407, 332)
 scale = Vector2(0.56, 1.64)
 
 [node name="nivel" type="Area2D" parent="."]

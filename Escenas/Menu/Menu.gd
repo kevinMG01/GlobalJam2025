@@ -40,4 +40,3 @@ func _on_fem_button_down():
 	GlobalVar.personaje = true
 	GlobalVar.inicio = 1
 	$eleccion.visible = false
-

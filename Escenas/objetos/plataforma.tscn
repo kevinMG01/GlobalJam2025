@@ -10,7 +10,6 @@ size = Vector2(804, 108)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(31, -29)
 shape = SubResource("RectangleShape2D_h0uqv")
-one_way_collision = true
 
 [node name="35SinTítulo20250125232231" type="Sprite2D" parent="."]
 texture = ExtResource("1_ra3p7")
