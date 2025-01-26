@@ -1,5 +1,6 @@
-[gd_scene load_steps=12 format=3 uid="uid://cs0pjiupxua6q"]
+[gd_scene load_steps=14 format=3 uid="uid://cs0pjiupxua6q"]
 
+[ext_resource type="Script" path="res://Escenas/Niveles/Nivel_3.gd" id="1_jtbuy"]
 [ext_resource type="Texture2D" uid="uid://b788ft5gq4iwp" path="res://Sprite/circo escena de entrada2.0 final.jpg" id="1_qu2vn"]
 [ext_resource type="PackedScene" uid="uid://bgnsbw7lpfa51" path="res://Escenas/Player/player.tscn" id="2_unb2k"]
 [ext_resource type="PackedScene" uid="uid://b8flyx1h7jimc" path="res://Escenas/objetos/plataforma.tscn" id="3_plgok"]
@@ -21,7 +22,11 @@ size = Vector2(5773.64, 20)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oav3a"]
 size = Vector2(196.176, 387.731)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b3ruv"]
+size = Vector2(121, 221)
+
 [node name="Nivel3" type="Node2D"]
+script = ExtResource("1_jtbuy")
 
 [node name="paredBordes" type="Node2D" parent="."]
 
@@ -120,3 +125,11 @@ scale = Vector2(0.56, 1.64)
 [node name="escalera4" parent="." instance=ExtResource("5_xribj")]
 position = Vector2(4407, 332)
 scale = Vector2(0.56, 1.64)
+
+[node name="nivel" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="nivel"]
+position = Vector2(5672, 540)
+shape = SubResource("RectangleShape2D_b3ruv")
+
+[connection signal="body_entered" from="nivel" to="." method="_on_nivel_body_entered"]

@@ -140,3 +140,9 @@ func _on_detectar_area_exited(area):
 		SPEED = 300.0
 		gravity = 2000
 		enredadera = false
+
+
+
+
+
+
