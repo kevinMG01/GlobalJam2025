@@ -1,0 +1,136 @@
+[gd_scene load_steps=13 format=3 uid="uid://4x5f04k4n3qm"]
+
+[ext_resource type="Texture2D" uid="uid://b788ft5gq4iwp" path="res://Sprite/circo escena de entrada2.0 final.jpg" id="1_2x6w8"]
+[ext_resource type="PackedScene" uid="uid://bkykumy5008s6" path="res://Escenas/Enemigos/murcielago/murcielago.tscn" id="2_gb33v"]
+[ext_resource type="PackedScene" uid="uid://dfggjgvr8k30p" path="res://Escenas/Enemigos/payaso/payaso.tscn" id="3_s6x8q"]
+[ext_resource type="PackedScene" uid="uid://b8flyx1h7jimc" path="res://Escenas/objetos/plataforma.tscn" id="4_0cbvo"]
+[ext_resource type="PackedScene" uid="uid://bgnsbw7lpfa51" path="res://Escenas/Player/player.tscn" id="5_56qia"]
+[ext_resource type="PackedScene" uid="uid://c8jol2un8p31i" path="res://Escenas/objetos/escalera.tscn" id="6_0b7q5"]
+[ext_resource type="PackedScene" uid="uid://cy1su1e4sdbak" path="res://Escenas/Enemigos/spider/spider.tscn" id="7_eiqx3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5wj1b"]
+size = Vector2(18, 1186)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0mmei"]
+size = Vector2(23, 1053)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t8x0s"]
+size = Vector2(5773.64, 20)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_xvix8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4rmsd"]
+size = Vector2(196.176, 387.731)
+
+[node name="Nivel4" type="Node2D"]
+
+[node name="paredBordes" type="Node2D" parent="."]
+
+[node name="der" type="StaticBody2D" parent="paredBordes"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="paredBordes/der"]
+position = Vector2(6, 186)
+shape = SubResource("RectangleShape2D_5wj1b")
+
+[node name="izq" type="StaticBody2D" parent="paredBordes"]
+position = Vector2(1836, -14)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="paredBordes/izq"]
+position = Vector2(3917.5, 143.5)
+shape = SubResource("RectangleShape2D_0mmei")
+
+[node name="abajo" type="StaticBody2D" parent="paredBordes"]
+position = Vector2(-162, 656)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="paredBordes/abajo"]
+position = Vector2(3041.18, 10)
+shape = SubResource("RectangleShape2D_t8x0s")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="paredBordes/abajo"]
+position = Vector2(2909.5, -1069)
+scale = Vector2(3.6, 1)
+shape = SubResource("RectangleShape2D_t8x0s")
+
+[node name="CircoEscenaDeEntrada2_0Final" type="Sprite2D" parent="paredBordes"]
+z_index = -2
+position = Vector2(973, 114)
+texture = ExtResource("1_2x6w8")
+
+[node name="CircoEscenaDeEntrada2_0Final" type="Sprite2D" parent="paredBordes/CircoEscenaDeEntrada2_0Final"]
+position = Vector2(1922, 0)
+texture = ExtResource("1_2x6w8")
+
+[node name="CircoEscenaDeEntrada2_0Final" type="Sprite2D" parent="paredBordes/CircoEscenaDeEntrada2_0Final/CircoEscenaDeEntrada2_0Final"]
+position = Vector2(1922, 0)
+texture = ExtResource("1_2x6w8")
+
+[node name="murcielago" parent="." instance=ExtResource("2_gb33v")]
+position = Vector2(1367, -374)
+
+[node name="payaso" parent="." instance=ExtResource("3_s6x8q")]
+position = Vector2(1691, 507)
+
+[node name="plataforma" parent="." instance=ExtResource("4_0cbvo")]
+position = Vector2(2179, 621)
+
+[node name="plataforma2" parent="." instance=ExtResource("4_0cbvo")]
+position = Vector2(1545, 384)
+scale = Vector2(0.88, 1)
+
+[node name="plataforma3" parent="." instance=ExtResource("4_0cbvo")]
+position = Vector2(393, 508)
+
+[node name="Player" parent="." instance=ExtResource("5_56qia")]
+position = Vector2(69, 593)
+
+[node name="escalera" parent="." instance=ExtResource("6_0b7q5")]
+position = Vector2(1406, 487)
+scale = Vector2(0.634847, 0.882756)
+
+[node name="escalera2" parent="." instance=ExtResource("6_0b7q5")]
+position = Vector2(3130, 454)
+scale = Vector2(0.482206, 0.990309)
+
+[node name="escalera3" parent="." instance=ExtResource("6_0b7q5")]
+position = Vector2(3129, 77)
+scale = Vector2(0.482206, 0.990309)
+
+[node name="plataforma4" parent="." instance=ExtResource("4_0cbvo")]
+position = Vector2(3095, -133)
+
+[node name="plataforma5" parent="." instance=ExtResource("4_0cbvo")]
+position = Vector2(4214, 125)
+
+[node name="murcielago2" parent="." instance=ExtResource("2_gb33v")]
+position = Vector2(2180, -388)
+
+[node name="payaso2" parent="." instance=ExtResource("3_s6x8q")]
+position = Vector2(3231, 532)
+
+[node name="spider" parent="." instance=ExtResource("7_eiqx3")]
+position = Vector2(4996, -316)
+
+[node name="plataforma6" parent="." instance=ExtResource("4_0cbvo")]
+position = Vector2(5339, -40)
+
+[node name="plataforma7" parent="." instance=ExtResource("4_0cbvo")]
+position = Vector2(5344, 350)
+
+[node name="payaso3" parent="." instance=ExtResource("3_s6x8q")]
+position = Vector2(5691, 142)
+
+[node name="payaso4" parent="." instance=ExtResource("3_s6x8q")]
+position = Vector2(4335, 519)
+
+[node name="plataforma8" parent="." instance=ExtResource("4_0cbvo")]
+position = Vector2(3926, 477)
+rotation = -1.58211
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2(3906, 414)
+scale = Vector2(0.570918, 0.892372)
+physics_material_override = SubResource("PhysicsMaterial_xvix8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(-10.5103, 5.60297)
+shape = SubResource("RectangleShape2D_4rmsd")
