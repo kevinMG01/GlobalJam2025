@@ -13,9 +13,11 @@ func _ready():
 	$tiempoMov.wait_time = tip
 	$tiempoMov.start()
 
+
 func _physics_process(delta):
 	velocity = direccion.normalized() * velocidad
 	move_and_slide()
+
 
 
 func _on_tiempo_mov_timeout():
@@ -29,6 +31,18 @@ func _on_tiempo_mov_timeout():
 
 
 func _on_destuccion_timeout():
-	queue_free()
+	$AnimatedSprite2D.animation = "explocion"
+	$AnimatedSprite2D.play()
+	$Timer.start(0.6)
 	$destuccion.stop()
 
+
+
+func _on_detener_sonido_timeout():
+	$burbuja.queue_free()
+
+
+
+func _on_timer_timeout():
+	queue_free()
+	pass # Replace with function body.

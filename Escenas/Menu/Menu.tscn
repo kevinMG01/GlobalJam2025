@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://y5dgn7jmg2py"]
+[gd_scene load_steps=24 format=3 uid="uid://y5dgn7jmg2py"]
 
 [ext_resource type="Texture2D" uid="uid://nbi6wehaf1mx" path="res://Sprite/menu/Menu Circo siniestro sprite 1.jpg" id="1_210u4"]
 [ext_resource type="Script" path="res://Escenas/Menu/Menu.gd" id="1_qnjbp"]
@@ -9,6 +9,9 @@
 [ext_resource type="Texture2D" uid="uid://c4ur8ltnjbhj1" path="res://Sprite/menu/Boton jugar circo sprite 2.png" id="6_vxlag"]
 [ext_resource type="Texture2D" uid="uid://bgu0dwcleuw2j" path="res://Sprite/menu/Boton salir circo sprite 1.png" id="7_ms5nh"]
 [ext_resource type="Texture2D" uid="uid://dh0thtyckrdmf" path="res://Sprite/menu/Boton salir circo sprite 2.png" id="8_82ke7"]
+[ext_resource type="Texture2D" uid="uid://cysa1uvmwssiw" path="res://sprites/objetos/fondo.png" id="10_yuu1l"]
+[ext_resource type="Texture2D" uid="uid://djtj4atjw8fwc" path="res://sprites/player/masculino/37 sin título_20250126002328 - copia (4).png" id="11_q6v5g"]
+[ext_resource type="Texture2D" uid="uid://c5mpshbg0p2pv" path="res://sprites/player/corer/34 sin título_20250125224803 - copia.png" id="12_tskn3"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_y2qn2"]
 animations = [{
@@ -32,6 +35,26 @@ animations = [{
 "name": &"default",
 "speed": 5.0
 }]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dosnq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nhedo"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2hg6u"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0an72"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wne2y"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_t4y3g"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7nemn"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5rcmh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kdpuy"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3qjy6"]
 
 [node name="menu" type="Node2D"]
 script = ExtResource("1_qnjbp")
@@ -68,6 +91,36 @@ texture_pressed = ExtResource("8_82ke7")
 [node name="tiempoSonido" type="Timer" parent="."]
 wait_time = 0.3
 
+[node name="eleccion" type="Sprite2D" parent="."]
+position = Vector2(550, 337)
+texture = ExtResource("10_yuu1l")
+
+[node name="mas" type="Button" parent="eleccion"]
+offset_left = -237.0
+offset_top = -149.0
+offset_right = -118.0
+offset_bottom = 71.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_dosnq")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_nhedo")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_2hg6u")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_0an72")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_wne2y")
+icon = ExtResource("11_q6v5g")
+
+[node name="fem" type="Button" parent="eleccion"]
+offset_left = 144.0
+offset_top = -142.0
+offset_right = 270.0
+offset_bottom = 76.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_t4y3g")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_7nemn")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_5rcmh")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_kdpuy")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_3qjy6")
+icon = ExtResource("12_tskn3")
+
 [connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="salir" to="." method="_on_salir_pressed"]
 [connection signal="timeout" from="tiempoSonido" to="." method="_on_tiempo_sonido_timeout"]
+[connection signal="button_down" from="eleccion/mas" to="." method="_on_mas_button_down"]
+[connection signal="button_down" from="eleccion/fem" to="." method="_on_fem_button_down"]

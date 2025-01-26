@@ -1,16 +1,74 @@
-[gd_scene load_steps=5 format=3 uid="uid://g845r7iw7xmu"]
+[gd_scene load_steps=16 format=3 uid="uid://g845r7iw7xmu"]
 
 [ext_resource type="Script" path="res://Escenas/Player/burbujas/burbujas.gd" id="1_m8wbw"]
-[ext_resource type="Texture2D" uid="uid://ciinlx0yqrvgt" path="res://icon.svg" id="2_m35j1"]
+[ext_resource type="AudioStream" uid="uid://caw6mjiqgs7p8" path="res://Audio/Disparo de burbujas.mp3" id="3_1tfpw"]
+[ext_resource type="Texture2D" uid="uid://dba1pw01rdgee" path="res://sprites/burbujas/Burbujas_sprite-1.png" id="4_8hya6"]
+[ext_resource type="Texture2D" uid="uid://c8nhesbhnyyvt" path="res://sprites/burbujas/Burbujas_sprite-2.png" id="5_2gcmi"]
+[ext_resource type="Texture2D" uid="uid://dsyx5uxkjy105" path="res://sprites/burbujas/Burbujas_sprite-3.png" id="6_qu4w3"]
+[ext_resource type="Texture2D" uid="uid://c6xecyk3hc4pk" path="res://sprites/burbujas/Burbujas_sprite-4.png" id="7_u6kks"]
+[ext_resource type="Texture2D" uid="uid://dd0hriphsql2f" path="res://sprites/burbujas/Burbujas_sprite-5.png" id="8_3l116"]
+[ext_resource type="Texture2D" uid="uid://0u0icx06mesa" path="res://sprites/burbujas/Burbujas_sprite-6.png" id="9_j5p4m"]
+[ext_resource type="Texture2D" uid="uid://bbdte4f5hl3d7" path="res://sprites/burbujas/Burbujas_sprite-7.png" id="10_3m33e"]
+[ext_resource type="Texture2D" uid="uid://ik6y8co3xhh2" path="res://sprites/burbujas/Burbujas_sprite-8.png" id="11_q6ytk"]
+[ext_resource type="Texture2D" uid="uid://cs60fa4ha2oe7" path="res://sprites/burbujas/Burbujas_sprite-9.png" id="12_jsuja"]
+[ext_resource type="Texture2D" uid="uid://5qkr7g6ibdiu" path="res://sprites/burbujas/Burbujas_sprite-10.png" id="13_smgfi"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_u78n2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_8hya6")
+}],
+"loop": true,
+"name": &"bu",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_2gcmi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_qu4w3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_u6kks")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_3l116")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_j5p4m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_3m33e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_q6ytk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_jsuja")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_smgfi")
+}],
+"loop": true,
+"name": &"explocion",
+"speed": 15.0
+}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_368n2"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bglrh"]
-radius = 16.0312
+radius = 27.074
 
 [node name="burbujas" type="CharacterBody2D"]
 script = ExtResource("1_m8wbw")
 velocidad = 300
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.3, 0.3)
+sprite_frames = SubResource("SpriteFrames_u78n2")
+animation = &"bu"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_368n2")
@@ -21,13 +79,22 @@ disabled = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="detector"]
 shape = SubResource("CircleShape2D_bglrh")
 
-[node name="Icon" type="Sprite2D" parent="."]
-position = Vector2(1, 7)
-texture = ExtResource("2_m35j1")
-
 [node name="tiempoMov" type="Timer" parent="."]
 
 [node name="destuccion" type="Timer" parent="."]
 
+[node name="burbuja" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_1tfpw")
+autoplay = true
+
+[node name="detenerSonido" type="Timer" parent="."]
+wait_time = 0.6
+one_shot = true
+autostart = true
+
+[node name="Timer" type="Timer" parent="."]
+
 [connection signal="timeout" from="tiempoMov" to="." method="_on_tiempo_mov_timeout"]
 [connection signal="timeout" from="destuccion" to="." method="_on_destuccion_timeout"]
+[connection signal="timeout" from="detenerSonido" to="." method="_on_detener_sonido_timeout"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

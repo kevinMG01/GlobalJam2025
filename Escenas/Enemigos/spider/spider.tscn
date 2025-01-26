@@ -1,7 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://cy1su1e4sdbak"]
+[gd_scene load_steps=8 format=3 uid="uid://cy1su1e4sdbak"]
 
 [ext_resource type="Script" path="res://Escenas/Enemigos/spider/spider.gd" id="1_6q7jo"]
-[ext_resource type="Texture2D" uid="uid://ciinlx0yqrvgt" path="res://icon.svg" id="1_co1ke"]
+[ext_resource type="Texture2D" uid="uid://cyvofui7gfqnq" path="res://sprites/enemigos/1 final.png" id="2_aih04"]
+[ext_resource type="AudioStream" uid="uid://6fl84hloedhk" path="res://Audio/Araña Caminando.mp3" id="3_j8ckc"]
+[ext_resource type="AudioStream" uid="uid://bo5gf05segxmd" path="res://Audio/Araña disparando.mp3" id="4_1ea8k"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_55g6q"]
 radius = 59.4138
@@ -19,19 +21,20 @@ script = ExtResource("1_6q7jo")
 shape = SubResource("CircleShape2D_55g6q")
 disabled = true
 
-[node name="Icon" type="Sprite2D" parent="."]
-position = Vector2(-2, -2)
-texture = ExtResource("1_co1ke")
+[node name="1Final" type="Sprite2D" parent="."]
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("2_aih04")
 
 [node name="detector" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="detector"]
+position = Vector2(0, 15)
 shape = SubResource("CircleShape2D_ffc68")
 
 [node name="lanzarEnredaderas" type="Timer" parent="."]
 
 [node name="posEnredadera" type="Marker2D" parent="."]
-position = Vector2(-125, -39)
+position = Vector2(0, -55)
 
 [node name="radar" type="Area2D" parent="."]
 
@@ -45,6 +48,13 @@ target_position = Vector2(7.78063e-06, 89)
 [node name="tiTecho" type="Timer" parent="."]
 
 [node name="subir" type="Timer" parent="."]
+
+[node name="caminar" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_j8ckc")
+volume_db = -10.0
+
+[node name="disparar" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_1ea8k")
 
 [connection signal="body_entered" from="detector" to="." method="_on_detector_body_entered"]
 [connection signal="timeout" from="lanzarEnredaderas" to="." method="_on_lanzar_enredaderas_timeout"]
