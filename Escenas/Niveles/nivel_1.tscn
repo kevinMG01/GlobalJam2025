@@ -1,6 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://dnxj2xv5oxh1t"]
+[gd_scene load_steps=12 format=3 uid="uid://dnxj2xv5oxh1t"]
 
 [ext_resource type="PackedScene" uid="uid://bgnsbw7lpfa51" path="res://Escenas/Player/player.tscn" id="1_20s75"]
+[ext_resource type="Script" path="res://Escenas/Niveles/nivel_1.gd" id="1_oua0s"]
 [ext_resource type="Texture2D" uid="uid://b788ft5gq4iwp" path="res://Sprite/circo escena de entrada2.0 final.jpg" id="3_4tbcm"]
 [ext_resource type="PackedScene" uid="uid://b8flyx1h7jimc" path="res://Escenas/objetos/plataforma.tscn" id="4_0oheq"]
 [ext_resource type="PackedScene" uid="uid://dfggjgvr8k30p" path="res://Escenas/Enemigos/payaso/payaso.tscn" id="4_jr0to"]
@@ -19,7 +20,11 @@ size = Vector2(5773.64, 20)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_582c6"]
 size = Vector2(413.616, 175.847)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eplfv"]
+size = Vector2(121, 221)
+
 [node name="Nivel1" type="Node2D"]
+script = ExtResource("1_oua0s")
 
 [node name="Player" parent="." instance=ExtResource("1_20s75")]
 position = Vector2(119, 597)
@@ -101,7 +106,6 @@ physics_material_override = SubResource("PhysicsMaterial_h5kqj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(22.8939, 12.2452)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_582c6")
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="."]
@@ -113,7 +117,6 @@ physics_material_override = SubResource("PhysicsMaterial_h5kqj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
 position = Vector2(-250.987, -2887.73)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_582c6")
 
 [node name="StaticBody2D3" type="StaticBody2D" parent="."]
@@ -125,5 +128,12 @@ physics_material_override = SubResource("PhysicsMaterial_h5kqj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
 position = Vector2(-250.987, -2887.73)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_582c6")
+
+[node name="nivel" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="nivel"]
+position = Vector2(5672, 540)
+shape = SubResource("RectangleShape2D_eplfv")
+
+[connection signal="body_entered" from="nivel" to="." method="_on_nivel_body_entered"]

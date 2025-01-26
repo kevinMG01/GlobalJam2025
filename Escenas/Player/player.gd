@@ -142,3 +142,6 @@ func _on_detectar_area_exited(area):
 		enredadera = false
 
 
+
+
+

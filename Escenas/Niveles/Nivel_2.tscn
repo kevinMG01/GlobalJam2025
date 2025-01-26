@@ -1,6 +1,7 @@
-[gd_scene load_steps=12 format=3 uid="uid://d01eqiym3unba"]
+[gd_scene load_steps=14 format=3 uid="uid://d01eqiym3unba"]
 
 [ext_resource type="Texture2D" uid="uid://b788ft5gq4iwp" path="res://Sprite/circo escena de entrada2.0 final.jpg" id="1_2ndxu"]
+[ext_resource type="Script" path="res://Escenas/Niveles/Nivel_2.gd" id="1_a5fhb"]
 [ext_resource type="PackedScene" uid="uid://b8flyx1h7jimc" path="res://Escenas/objetos/plataforma.tscn" id="2_mrd56"]
 [ext_resource type="PackedScene" uid="uid://c8jol2un8p31i" path="res://Escenas/objetos/escalera.tscn" id="3_5qxfi"]
 [ext_resource type="PackedScene" uid="uid://bgnsbw7lpfa51" path="res://Escenas/Player/player.tscn" id="4_bjdgi"]
@@ -21,7 +22,11 @@ size = Vector2(23, 1053)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u1ed1"]
 size = Vector2(5773.64, 20)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vgxvm"]
+size = Vector2(121, 221)
+
 [node name="Nivel2" type="Node2D"]
+script = ExtResource("1_a5fhb")
 
 [node name="CircoEscenaDeEntrada2_0Final" type="Sprite2D" parent="."]
 position = Vector2(962, 113)
@@ -172,3 +177,11 @@ position = Vector2(5342, -293)
 
 [node name="plataforma7" parent="." instance=ExtResource("2_mrd56")]
 position = Vector2(5422, 367)
+
+[node name="nivel" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="nivel"]
+position = Vector2(5672, 540)
+shape = SubResource("RectangleShape2D_vgxvm")
+
+[connection signal="body_entered" from="nivel" to="." method="_on_nivel_body_entered"]
