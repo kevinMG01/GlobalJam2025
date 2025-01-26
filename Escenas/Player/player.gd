@@ -4,9 +4,9 @@ extends CharacterBody2D
 var burbujas = preload("res://Escenas/Player/burbujas/burbujas.tscn")
 
 var SPEED = 300.0
-const JUMP_VELOCITY = -1300.0
+const JUMP_VELOCITY = -1000.0
 
-var gravity = 2000
+var gravity = 2500
 
 var cantidadBurbujas = 20
 
@@ -140,5 +140,3 @@ func _on_detectar_area_exited(area):
 		SPEED = 300.0
 		gravity = 2000
 		enredadera = false
-
-

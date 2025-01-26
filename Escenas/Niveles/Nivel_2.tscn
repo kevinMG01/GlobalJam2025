@@ -39,7 +39,7 @@ texture = ExtResource("1_2ndxu")
 position = Vector2(1125, 383)
 
 [node name="escalera" parent="." instance=ExtResource("3_5qxfi")]
-position = Vector2(828, 482)
+position = Vector2(706, 482)
 scale = Vector2(0.663124, 0.865672)
 
 [node name="Player" parent="." instance=ExtResource("4_bjdgi")]
@@ -95,27 +95,27 @@ position = Vector2(405, -635)
 scale = Vector2(0.840005, 1)
 
 [node name="escalera2" parent="." instance=ExtResource("3_5qxfi")]
-position = Vector2(2106, 487)
+position = Vector2(1992, 503)
 scale = Vector2(0.570918, 0.692372)
 
 [node name="escalera3" parent="." instance=ExtResource("3_5qxfi")]
-position = Vector2(3596, 506)
+position = Vector2(3704, 506)
 scale = Vector2(0.570918, 0.692372)
 
 [node name="escalera5" parent="." instance=ExtResource("3_5qxfi")]
-position = Vector2(2371, 203)
+position = Vector2(2264, 203)
 scale = Vector2(0.570918, 0.892372)
 
 [node name="escalera6" parent="." instance=ExtResource("3_5qxfi")]
-position = Vector2(3344, 212)
+position = Vector2(3449, 216)
 scale = Vector2(0.570918, 0.892372)
 
 [node name="escalera7" parent="." instance=ExtResource("3_5qxfi")]
-position = Vector2(3133, -113)
+position = Vector2(3223, -113)
 scale = Vector2(0.456164, 0.804886)
 
 [node name="escalera8" parent="." instance=ExtResource("3_5qxfi")]
-position = Vector2(2555, -115)
+position = Vector2(2471, -115)
 scale = Vector2(0.456164, 0.804886)
 
 [node name="plataforma4" parent="." instance=ExtResource("2_mrd56")]
@@ -128,7 +128,7 @@ position = Vector2(3471, 506)
 position = Vector2(2634, 199)
 
 [node name="payaso3" parent="." instance=ExtResource("5_vdusl")]
-position = Vector2(3009, -137)
+position = Vector2(2967, -71)
 
 [node name="plataforma5" parent="." instance=ExtResource("2_mrd56")]
 position = Vector2(3923, 545)
@@ -168,7 +168,7 @@ scale = Vector2(3.6, 1)
 shape = SubResource("RectangleShape2D_u1ed1")
 
 [node name="spider2" parent="." instance=ExtResource("6_bsjkk")]
-position = Vector2(5342, -293)
+position = Vector2(4795, -285)
 
 [node name="plataforma7" parent="." instance=ExtResource("2_mrd56")]
 position = Vector2(5422, 367)

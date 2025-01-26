@@ -84,19 +84,15 @@ position = Vector2(393, 508)
 position = Vector2(69, 593)
 
 [node name="escalera" parent="." instance=ExtResource("6_0b7q5")]
-position = Vector2(1406, 487)
+position = Vector2(1162, 487)
 scale = Vector2(0.634847, 0.882756)
 
 [node name="escalera2" parent="." instance=ExtResource("6_0b7q5")]
-position = Vector2(3130, 454)
-scale = Vector2(0.482206, 0.990309)
-
-[node name="escalera3" parent="." instance=ExtResource("6_0b7q5")]
-position = Vector2(3129, 77)
-scale = Vector2(0.482206, 0.990309)
+position = Vector2(2720, 190)
+scale = Vector2(0.482206, 1.35031)
 
 [node name="plataforma4" parent="." instance=ExtResource("4_0cbvo")]
-position = Vector2(3095, -133)
+position = Vector2(3136, -10)
 
 [node name="plataforma5" parent="." instance=ExtResource("4_0cbvo")]
 position = Vector2(4214, 125)
@@ -108,7 +104,7 @@ position = Vector2(2180, -388)
 position = Vector2(3231, 532)
 
 [node name="spider" parent="." instance=ExtResource("7_eiqx3")]
-position = Vector2(4996, -316)
+position = Vector2(4809, -316)
 
 [node name="plataforma6" parent="." instance=ExtResource("4_0cbvo")]
 position = Vector2(5339, -40)
