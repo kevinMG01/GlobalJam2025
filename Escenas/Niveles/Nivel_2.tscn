@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://d01eqiym3unba"]
+[gd_scene load_steps=15 format=3 uid="uid://d01eqiym3unba"]
 
 [ext_resource type="Texture2D" uid="uid://b788ft5gq4iwp" path="res://Sprite/circo escena de entrada2.0 final.jpg" id="1_2ndxu"]
 [ext_resource type="Script" path="res://Escenas/Niveles/Nivel_2.gd" id="1_a5fhb"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bgnsbw7lpfa51" path="res://Escenas/Player/player.tscn" id="4_bjdgi"]
 [ext_resource type="PackedScene" uid="uid://dfggjgvr8k30p" path="res://Escenas/Enemigos/payaso/payaso.tscn" id="5_vdusl"]
 [ext_resource type="PackedScene" uid="uid://cy1su1e4sdbak" path="res://Escenas/Enemigos/spider/spider.tscn" id="6_bsjkk"]
+[ext_resource type="PackedScene" uid="uid://8403robo13qw" path="res://Escenas/pantalla/pantalla.tscn" id="8_7rae8"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_8hrld"]
 
@@ -183,5 +184,7 @@ position = Vector2(5422, 367)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="nivel"]
 position = Vector2(5672, 540)
 shape = SubResource("RectangleShape2D_vgxvm")
+
+[node name="pantalla" parent="." instance=ExtResource("8_7rae8")]
 
 [connection signal="body_entered" from="nivel" to="." method="_on_nivel_body_entered"]

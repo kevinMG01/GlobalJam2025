@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://4x5f04k4n3qm"]
+[gd_scene load_steps=14 format=3 uid="uid://4x5f04k4n3qm"]
 
 [ext_resource type="Texture2D" uid="uid://b788ft5gq4iwp" path="res://Sprite/circo escena de entrada2.0 final.jpg" id="1_2x6w8"]
 [ext_resource type="PackedScene" uid="uid://bkykumy5008s6" path="res://Escenas/Enemigos/murcielago/murcielago.tscn" id="2_gb33v"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bgnsbw7lpfa51" path="res://Escenas/Player/player.tscn" id="5_56qia"]
 [ext_resource type="PackedScene" uid="uid://c8jol2un8p31i" path="res://Escenas/objetos/escalera.tscn" id="6_0b7q5"]
 [ext_resource type="PackedScene" uid="uid://cy1su1e4sdbak" path="res://Escenas/Enemigos/spider/spider.tscn" id="7_eiqx3"]
+[ext_resource type="PackedScene" uid="uid://8403robo13qw" path="res://Escenas/pantalla/pantalla.tscn" id="8_itjj5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5wj1b"]
 size = Vector2(18, 1186)
@@ -130,3 +131,5 @@ physics_material_override = SubResource("PhysicsMaterial_xvix8")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
 position = Vector2(-10.5103, 5.60297)
 shape = SubResource("RectangleShape2D_4rmsd")
+
+[node name="pantalla" parent="." instance=ExtResource("8_itjj5")]
