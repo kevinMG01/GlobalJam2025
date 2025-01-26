@@ -29,13 +29,13 @@ size = Vector2(22, 62)
 size = Vector2(429, 235)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_esso0"]
-size = Vector2(26, 68)
+size = Vector2(26, 104)
 
 [node name="payaso" type="CharacterBody2D"]
 script = ExtResource("1_8q1uy")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(0.1, 0.1)
+scale = Vector2(0.2, 0.2)
 sprite_frames = SubResource("SpriteFrames_csd4n")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -59,7 +59,7 @@ shape = SubResource("RectangleShape2D_mpoey")
 [node name="detectar" type="Area2D" parent="."]
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="detectar"]
-position = Vector2(-5, 0)
+position = Vector2(-5, 18)
 shape = SubResource("RectangleShape2D_esso0")
 
 [node name="Timer" type="Timer" parent="."]

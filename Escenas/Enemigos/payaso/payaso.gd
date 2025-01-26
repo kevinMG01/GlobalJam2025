@@ -18,7 +18,7 @@ func _physics_process(delta):
 		velocity.y += gravity * delta
 	#var direction = 1
 	if is_on_wall(): 
-		if !$Sprite2D.flip_h:
+		if !$AnimatedSprite2D.flip_h:
 			velocity.x = speed2
 		else:
 			velocity.x = -speed2
