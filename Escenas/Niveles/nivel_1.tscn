@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://dnxj2xv5oxh1t"]
+[gd_scene load_steps=9 format=3 uid="uid://dnxj2xv5oxh1t"]
 
 [ext_resource type="PackedScene" uid="uid://bgnsbw7lpfa51" path="res://Escenas/Player/player.tscn" id="1_20s75"]
 [ext_resource type="Texture2D" uid="uid://ciinlx0yqrvgt" path="res://icon.svg" id="2_xoyw4"]
+[ext_resource type="PackedScene" uid="uid://cy1su1e4sdbak" path="res://Escenas/Enemigos/spider/spider.tscn" id="3_rspde"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nnppg"]
 size = Vector2(25, 789)
@@ -13,7 +14,7 @@ size = Vector2(24, 794)
 size = Vector2(1845, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fsq0c"]
-size = Vector2(187, 339.5)
+size = Vector2(105.5, 339.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_glkr8"]
 size = Vector2(568, 20)
@@ -42,13 +43,17 @@ shape = SubResource("RectangleShape2D_41yhm")
 position = Vector2(-24, 656)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="paredBordes/abajo"]
-position = Vector2(912.5, 0)
+position = Vector2(952, 10)
+shape = SubResource("RectangleShape2D_yy861")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="paredBordes/abajo"]
+position = Vector2(956, -663)
 shape = SubResource("RectangleShape2D_yy861")
 
 [node name="Area2D" type="Area2D" parent="." groups=["escalera"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(518, 494.75)
+position = Vector2(477.25, 494.75)
 shape = SubResource("RectangleShape2D_fsq0c")
 
 [node name="Icon" type="Sprite2D" parent="."]
@@ -63,3 +68,6 @@ texture = ExtResource("2_xoyw4")
 position = Vector2(708, 328)
 shape = SubResource("RectangleShape2D_glkr8")
 one_way_collision = true
+
+[node name="spider" parent="." instance=ExtResource("3_rspde")]
+position = Vector2(1276, 429)
