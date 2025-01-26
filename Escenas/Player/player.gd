@@ -3,7 +3,7 @@ extends CharacterBody2D
 
 var burbujas = preload("res://Escenas/Player/burbujas/burbujas.tscn")
 
-const SPEED = 300.0
+var SPEED = 300.0
 const JUMP_VELOCITY = -1300.0
 
 var gravity = 2000
@@ -15,6 +15,10 @@ var going_up = false
 var acceleration = 100
 var max_speed = 200
 
+func _ready():
+	
+	$AnimatedSprite2D.play()
+
 func _physics_process(delta):
 	if Input.is_action_just_pressed("ui_accept"):
 		if cantidadBurbujas > 0:
@@ -24,11 +28,14 @@ func _physics_process(delta):
 	if !going_up:
 		if not is_on_floor():
 			velocity.y += gravity * delta
+			$AnimatedSprite2D.animation = "caida"
 			
 
 	climb()
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
+		$AnimatedSprite2D.animation = "salto"
+		
 
 	var direction = Input.get_axis("ui_left", "ui_right")
 	if direction:
@@ -36,6 +43,8 @@ func _physics_process(delta):
 		cambiarDireccion(direction)
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
+		if is_on_floor():
+			$AnimatedSprite2D.animation = "normal"
 
 	move_and_slide()
 
@@ -43,7 +52,13 @@ func _physics_process(delta):
 func cambiarDireccion(direccion):
 	if direccion == 1:#derecha
 		$posBurbujas.position = Vector2(85,0)
+		if is_on_floor():
+			$AnimatedSprite2D.animation = "correr"
+		$AnimatedSprite2D.flip_h = false
 	if direccion == -1:
+		if is_on_floor():
+			$AnimatedSprite2D.animation = "correr"
+		$AnimatedSprite2D.flip_h = true
 		$posBurbujas.position = Vector2(-85,0)
 
 
@@ -77,8 +92,7 @@ func _on_detector_escaleras_area_entered(area):
 	area.get_name()
 	if area.is_in_group("escalera"):
 		colliding_ladder = true
-		
-	pass # Replace with function body.
+
 
 
 func _on_detector_escaleras_area_exited(area):
@@ -86,4 +100,20 @@ func _on_detector_escaleras_area_exited(area):
 	if area.is_in_group("escalera"):
 		colliding_ladder = false
 		going_up = false
-	pass # Replace with function body.
+
+
+
+func _on_detectar_area_entered(area):
+	if area.is_in_group("enredadera"):
+		SPEED = 150.0
+		gravity = 10000
+
+
+
+
+func _on_detectar_area_exited(area):
+	if area.is_in_group("enredadera"):
+		SPEED = 300.0
+		gravity = 2000
+
+

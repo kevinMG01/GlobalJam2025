@@ -1,22 +1,81 @@
-[gd_scene load_steps=5 format=3 uid="uid://bgnsbw7lpfa51"]
+[gd_scene load_steps=14 format=3 uid="uid://bgnsbw7lpfa51"]
 
 [ext_resource type="Script" path="res://Escenas/Player/player.gd" id="1_cjwrm"]
-[ext_resource type="Texture2D" uid="uid://ciinlx0yqrvgt" path="res://icon.svg" id="2_xk3q0"]
+[ext_resource type="Texture2D" uid="uid://bm5p0r7phpsdn" path="res://sprites/player/salto/34 sin título_20250125224803 - copia (7).png" id="2_8lopt"]
+[ext_resource type="Texture2D" uid="uid://c8s5wnu4krnyd" path="res://sprites/player/corer/34 sin título_20250125224803 - copia (9).png" id="3_6ep38"]
+[ext_resource type="Texture2D" uid="uid://ky7bt0wplbyo" path="res://sprites/player/corer/34 sin título_20250125224803 - copia (10).png" id="4_42017"]
+[ext_resource type="Texture2D" uid="uid://bg2rtlnm36x2a" path="res://sprites/player/corer/34 sin título_20250125224803.png" id="5_uevmu"]
+[ext_resource type="Texture2D" uid="uid://2ur6qu0ta3it" path="res://sprites/player/corer/34 sin título_20250125224803 - copia (5).png" id="6_nhc1i"]
+[ext_resource type="Texture2D" uid="uid://c5mpshbg0p2pv" path="res://sprites/player/corer/34 sin título_20250125224803 - copia.png" id="7_bskvo"]
+[ext_resource type="Texture2D" uid="uid://dh0rfthyho344" path="res://sprites/player/salto/34 sin título_20250125224803 - copia (6).png" id="8_8ojvj"]
+[ext_resource type="Texture2D" uid="uid://c5ddews5lxo7r" path="res://sprites/player/salto/34 sin título_20250125224803 - copia (8).png" id="9_l0cho"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_avyy7"]
-size = Vector2(93, 104.5)
+size = Vector2(51, 108.25)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n0qev"]
-size = Vector2(73.5, 105)
+size = Vector2(31, 104)
 
-[node name="Player" type="CharacterBody2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l2nj1"]
+size = Vector2(39, 25.5)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_b3jms"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_8lopt")
+}],
+"loop": true,
+"name": &"caida",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_6ep38")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_42017")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_uevmu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_nhc1i")
+}],
+"loop": true,
+"name": &"correr",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_bskvo")
+}],
+"loop": true,
+"name": &"normal",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_8ojvj")
+}],
+"loop": true,
+"name": &"salto",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_l0cho")
+}],
+"loop": true,
+"name": &"suelo",
+"speed": 5.0
+}]
+
+[node name="Player" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_cjwrm")
 
-[node name="Icon" type="Sprite2D" parent="."]
-position = Vector2(1, 7)
-texture = ExtResource("2_xk3q0")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-5.5, 4.875)
 shape = SubResource("RectangleShape2D_avyy7")
 
 [node name="posBurbujas" type="Marker2D" parent="."]
@@ -25,8 +84,21 @@ position = Vector2(85, 0)
 [node name="detectorEscaleras" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="detectorEscaleras"]
-position = Vector2(4.25, 5.5)
+position = Vector2(-13.5, 10)
 shape = SubResource("RectangleShape2D_n0qev")
+
+[node name="detectar" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="detectar"]
+position = Vector2(-10.5, 46.75)
+shape = SubResource("RectangleShape2D_l2nj1")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.6, 0.6)
+sprite_frames = SubResource("SpriteFrames_b3jms")
+animation = &"caida"
 
 [connection signal="area_entered" from="detectorEscaleras" to="." method="_on_detector_escaleras_area_entered"]
 [connection signal="area_exited" from="detectorEscaleras" to="." method="_on_detector_escaleras_area_exited"]
+[connection signal="area_entered" from="detectar" to="." method="_on_detectar_area_entered"]
+[connection signal="area_exited" from="detectar" to="." method="_on_detectar_area_exited"]

@@ -1,0 +1,73 @@
+[gd_scene load_steps=11 format=3 uid="uid://y5dgn7jmg2py"]
+
+[ext_resource type="Texture2D" uid="uid://nbi6wehaf1mx" path="res://Sprite/menu/Menu Circo siniestro sprite 1.jpg" id="1_210u4"]
+[ext_resource type="Script" path="res://Escenas/Menu/Menu.gd" id="1_qnjbp"]
+[ext_resource type="Texture2D" uid="uid://bpdyajnit8804" path="res://Sprite/menu/Menu Circo siniestro sprite 2.jpg" id="2_qbptb"]
+[ext_resource type="Texture2D" uid="uid://dp0ky4a7n4vit" path="res://Sprite/menu/Menu Circo siniestro sprite 3.jpg" id="3_tso2v"]
+[ext_resource type="Texture2D" uid="uid://cx3qx8fyfs0wi" path="res://Sprite/menu/Menu Circo siniestro sprite 4.jpg" id="4_2gq8c"]
+[ext_resource type="Texture2D" uid="uid://bn14bwa3jmujj" path="res://Sprite/menu/Boton jugar circo sprite 1.png" id="5_ydlem"]
+[ext_resource type="Texture2D" uid="uid://c4ur8ltnjbhj1" path="res://Sprite/menu/Boton jugar circo sprite 2.png" id="6_vxlag"]
+[ext_resource type="Texture2D" uid="uid://bgu0dwcleuw2j" path="res://Sprite/menu/Boton salir circo sprite 1.png" id="7_ms5nh"]
+[ext_resource type="Texture2D" uid="uid://dh0thtyckrdmf" path="res://Sprite/menu/Boton salir circo sprite 2.png" id="8_82ke7"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_y2qn2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_210u4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_qbptb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_tso2v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_2gq8c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_tso2v")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="menu" type="Node2D"]
+script = ExtResource("1_qnjbp")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(578.5, 325)
+scale = Vector2(0.597396, 0.611111)
+sprite_frames = SubResource("SpriteFrames_y2qn2")
+frame_progress = 0.282584
+speed_scale = 50.0
+
+[node name="Play" type="TextureButton" parent="."]
+offset_left = 506.0
+offset_top = 466.0
+offset_right = 815.0
+offset_bottom = 741.0
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("5_ydlem")
+texture_pressed = ExtResource("6_vxlag")
+
+[node name="salir" type="TextureButton" parent="."]
+offset_left = 508.0
+offset_top = 315.0
+offset_right = 817.0
+offset_bottom = 590.0
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("7_ms5nh")
+texture_pressed = ExtResource("8_82ke7")
+
+[node name="fondo" type="AudioStreamPlayer2D" parent="."]
+
+[node name="explocion" type="AudioStreamPlayer2D" parent="."]
+
+[node name="tiempoSonido" type="Timer" parent="."]
+wait_time = 0.3
+
+[connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="salir" to="." method="_on_salir_pressed"]
+[connection signal="timeout" from="tiempoSonido" to="." method="_on_tiempo_sonido_timeout"]

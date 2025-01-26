@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://b7l05exv62xl2"]
+
+[ext_resource type="Script" path="res://Escenas/Enemigos/spider/enredaderas/enredaderas.gd" id="1_ku6sa"]
+[ext_resource type="Texture2D" uid="uid://ciinlx0yqrvgt" path="res://icon.svg" id="2_nh0sm"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2fra0"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wgk4y"]
+radius = 51.0392
+
+[node name="enredaderas" type="CharacterBody2D"]
+script = ExtResource("1_ku6sa")
+velocidad = 300
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_2fra0")
+disabled = true
+
+[node name="Icon" type="Sprite2D" parent="."]
+position = Vector2(-3, -1)
+texture = ExtResource("2_nh0sm")
+
+[node name="detector" type="Area2D" parent="." groups=["enredadera"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="detector"]
+shape = SubResource("CircleShape2D_wgk4y")
+
+[connection signal="body_entered" from="detector" to="." method="_on_detector_body_entered"]
